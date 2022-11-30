@@ -17,7 +17,7 @@ export const ContactItem = ({ name, id, number }) => {
 
       <ContactsDeleteBtn
         type="button"
-        onClick={e => {
+        onClick={() => {
           dispatch(deleteContact(id));
           filter && dispatch(filterContacts(''));
         }}

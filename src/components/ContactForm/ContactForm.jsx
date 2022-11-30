@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import Notiflix from 'notiflix';
 import { Form, FormInput, FormLabel, SubmitBtn } from './ContactForm.styled';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
@@ -16,7 +17,13 @@ export const ContactForm = () => {
     );
     if (sameContact !== undefined) {
       form.reset();
-      return alert(`${sameContact.name} is already in contacts!`);
+      return Notiflix.Notify.info(
+        `${sameContact.name} is already in contacts!`,
+        {
+          width: '500px',
+          fontSize: '20px',
+        }
+      );
     }
     dispatch(
       addContact({
