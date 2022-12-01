@@ -19,10 +19,13 @@ export const RegistrationForm = () => {
 
   useEffect(() => {
     if (error !== null) {
-      Notiflix.Notify.info('User with this data is already registered!', {
-        width: '500px',
-        fontSize: '20px',
-      });
+      Notiflix.Notify.info(
+        'Invalid data input. Please, check your email and password length!',
+        {
+          width: '500px',
+          fontSize: '20px',
+        }
+      );
       dispatch(errorReset(null));
     }
   }, [error, dispatch]);

@@ -14,10 +14,13 @@ export const LoginForm = () => {
 
   useEffect(() => {
     if (error !== null) {
-      Notiflix.Notify.info('Invalid email or password!', {
-        width: '500px',
-        fontSize: '20px',
-      });
+      Notiflix.Notify.info(
+        'User validation failed. Please, check your email or password!',
+        {
+          width: '500px',
+          fontSize: '20px',
+        }
+      );
       dispatch(errorReset(null));
     }
   }, [error, dispatch]);
